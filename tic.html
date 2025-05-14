@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Tournament</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #1a0130;
+            color: white;
+            text-align: center;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: #070017;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        .logo img {
+            height: 50px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .join-btn {
+            background: linear-gradient(90deg, #ff00ff, #0066ff);
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .hero {
+            position: relative;
+            height: 400px;
+            background: url('background.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 60px;
+        }
+.hero-image {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 1200px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-content h1 {
+            font-size: 42px;
+        }
+        .hero-content p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .cta {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(90deg, #ff00ff, #0066ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        section {
+            padding: 100px 20px;
+            min-height: 100vh;
+        }
+        .tournament-section {
+            background: #120024;
+            padding: 50px 20px;
+        }
+        .tournament-header {
+            text-transform: uppercase;
+            font-size: 30px;
+            font-weight: bold;
+            color: #ff00ff;
+        }
+        .match-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .team-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+            text-align: center;
+            transition: 0.3s ease-in-out;
+        }
+        .team-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .team-card h3 {
+            font-size: 22px;
+            color: #00ccff;
+        }
+        .team-card p {
+            font-size: 16px;
+            background: #ff00ff;
+            padding: 5px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .match-time {
+            font-size: 16px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff00ff, #0066ff);
+            padding: 5px;
+            border-radius: 8px;
+width:150px;
+margin:auto;
+
+        }
+        /* Latest News Section */
+        .news-section {
+            background: #1b0129;
+            padding: 50px 20px;
+        }
+        .news-header {
+            text-transform: uppercase;
+            font-size: 30px;
+            font-weight: bold;
+            color: #ff00ff;
+        }
+        .news-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        .news-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            transition: 0.3s ease-in-out;
+        }
+        .news-item h3 {
+            font-size: 22px;
+            color: #00ccff;
+        }
+        .news-item p {
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        .contact-section {
+    background: #1a0130;
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.contact-info {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px;
+}
+
+.contact-info h3 {
+    color: #ff00ff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 16px;
+    color: #ddd;
+}
+
+.newsletter {
+    margin-top: 40px;
+}
+
+.newsletter h3 {
+    color: #ff00ff;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.newsletter input {
+    padding: 10px;
+    width: 250px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.newsletter button {
+    background: linear-gradient(90deg, #ff00ff, #0066ff);
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><img src="toplogo.jpg" alt="Tic-Tac-Toe Logo"></div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tournament">Tournament</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="subscription.html" class="join-btn">Join Now</a>
+        </nav>
+    </header>
+    
+    <section id="home" class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Tic-Tac-Toe</h1>
+            <p>Play every game as if it is your last game</p>
+            
+<img src="home.jpg" alt="Tic-Tac-Toe Game" class="hero-image">
+
+
+        </div>
+    </section>
+    
+    <section id="tournament" class="tournament-section">
+        <h2 class="tournament-header">Upcoming Matches</h2>
+<h1>BATTLES EXTREME MASTERS TOURNAMENT</h1>
+<p>Our success in creating business solutions is due in large part to our talented and highly committed team.</p>
+        <div class="match-container">
+            <div class="team-card">
+                <img src="ticevent1.jpg" alt="Purple Death Cadets">
+                <h3>Purple Death Cadets</h3>
+                <p>Group 04 | Match 06th</p>
+            </div>
+            <div class="match-time">10:00 AM <br> 25th May 2024</div>
+            <div class="team-card">
+                <img src="ticevent2.jpg" alt="Trigger Brain Squad">
+                <h3>Trigger Brain Squad</h3>
+                <p>Group 04 | Match 06th</p>
+            </div>
+            <div class="team-card">
+                <img src="ticevent3.jpg" alt="Shadow Knights">
+                <h3>Shadow Knights</h3>
+                <p>Group 02 | Match 03rd</p>
+                <div class="match-time">2:00 PM | 26th May 2024</div>
+            </div>
+            <div class="team-card">
+                <img src="ticevent4.jpg" alt="Iron Fist Clan">
+                <h3>Iron Fist Clan</h3>
+                <p>Group 02 | Match 03rd</p>
+            </div>
+
+            <!-- Match 3 -->
+            <div class="team-card">
+                <img src="ticevent5.jpg" alt="Blazing Comets">
+                <h3>Blazing Comets</h3>
+                <p>Group 01 | Match 02nd</p>
+                <div class="match-time">5:00 PM | 27th May 2024</div>
+            </div>
+            <div class="team-card">
+                <img src="ticevent6.jpg" alt="Storm Breakers">
+                <h3>Storm Breakers</h3>
+                <p>Group 02 | Match 02nd</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="news" class="news-section">
+        <h2 class="news-header">WHAT'S ON OUR MIND</h2>
+<h1>NEWS AND HEADLINES</h1>
+<p>Our success in creating business solutions is due in large part to our talented and highly committed team.</p>
+        <div class="news-container">
+            <div class="news-item">
+                <h3>Grand Finals Announced!</h3>
+                <p>The Tic-Tac-Toe Championship Grand Finals will be held on 30th May 2024. Get ready for the most intense match of the year!</p>
+            </div>
+            <div class="news-item">
+                <h3>New Teams Joined</h3>
+                <p>Three new teams have entered the tournament, making the competition even more thrilling. Stay tuned for their first matches.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>LOCATION:</h3>
+                <p>Shri Vishnu Engineering College ,Bhimavaram,Andhra Pradesh</p>
+            </div>
+            <div class="contact-info">
+                <h3>JOIN US:</h3>
+                <p>Email: <a href="mailto:info@gamehive.com">mahimadevarapu@gmail.com</a></p>
+            </div>
+            <div class="contact-info">
+                <h3>PHONE:</h3>
+                <p>9705701634</p>
+            </div>
+        </div>
+    
+        <div class="newsletter">
+            <h3>Newsletter Signup</h3>
+            <form>
+                <input type="email" placeholder="Your Email" required>
+                            </form>
+        </div>
+    </section>
+    
+</body>
+</html>

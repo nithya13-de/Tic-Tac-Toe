@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #120024;
+            color: white;
+            text-align: center;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: #070017;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        .logo img {
+            height: 150px;
+            width: 70px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .join-btn {
+            background: linear-gradient(90deg, #ff00ff, #0066ff);
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .subscription {
+            padding: 50px;
+            text-align: center;
+        }
+        .plans {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .plan {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .plan h3 {
+            font-size: 24px;
+        }
+        .plan p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .subscribe-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #ff00ff, #0066ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+                        <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tournament">Tournament</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+                            </ul>
+            <a href="#game" class="join-btn">Join Now</a>
+        </nav>
+    </header>
+    
+    <section id="subscription" class="subscription">
+        <h2>Choose Your Subscription</h2>
+        <div class="plans">
+            <div class="plan">
+                <h3>Basic Plan</h3>
+                <p>Free</p>
+                <p>Limited Features</p>
+                <button class="subscribe-btn" onclick="subscribe('Basic')">Subscribe</button>
+            </div>
+            <div class="plan">
+                <h3>Premium Plan</h3>
+                <p>$9.99/month</p>
+                <p>Exclusive Features</p>
+                <button class="subscribe-btn" onclick="subscribe('Premium')">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function subscribe(plan) {
+            alert("You have selected the " + plan + " plan.");
+        }
+    </script>
+</body>
+</html>
